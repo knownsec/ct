@@ -56,13 +56,13 @@ ct -i
 ct -T
 
 利用zoomeye的域名查询进行的懒人模式 默认每账号每天2万条查询结果
-ct knownsec.com
+ct baidu.com
 
 使用域名字典爆破
-ct -d domain_dict.txt knownsec.com
+ct -d domain_dict.txt baidu.com
 
 使用指定dns域名解析服务器及字典进行爆破(不使用ZoomEye数据加-Z，默认不加为合并) 字典路径需要带完整路径
-ct -Z -t domain_dict.txt -s dns.txt knownsec.com
+ct -Z -t domain_dict.txt -s dns.txt baidu.com
 ```
 
 ## 域名以及IP关系图形生成
@@ -70,7 +70,7 @@ ct -Z -t domain_dict.txt -s dns.txt knownsec.com
 *nix
 
 ```bash
-cd /tmp/202111301212_knownsec.com
+cd /tmp/202111301212_baidu.com
 chmod +x convert2png.sh
 ./convert2png.sh
 ls *.png
@@ -79,7 +79,7 @@ ls *.png
 Windows
 
 ```bat
-cd C:\Users\rungobier\Desktop\202111301212_knownsec.com
+cd C:\Users\rungobier\Desktop\202111301212_baidu.com
 convert2png.bat
 dir *.png
 ```
