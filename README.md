@@ -62,7 +62,7 @@ ct baidu.com
 ct -d domain_dict.txt baidu.com
 
 使用指定dns域名解析服务器及字典进行爆破(不使用ZoomEye数据加-Z，默认不加为合并) 字典路径需要带完整路径
-ct -Z -t domain_dict.txt -s dns.txt baidu.com
+ct -Z -d domain_dict.txt -s dns.txt baidu.com
 ```
 
 ## 域名以及IP关系图形生成
