@@ -1,0 +1,24 @@
+[package]
+name = "ct"
+version = "1.0.0"
+authors = ["rungobier@knownsec 404 team <rungobier@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+num_cpus = "1.0"
+clap = "2.33.3"
+regex = "1.5.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+headless_chrome = "0.9.0"
+dirs = "3.0.2"
+url = "2.2.2"
+mlua = { version = "0.6.2", features = ["lua54", "vendored"] }
+dnsclient = "0.1.15"
+threadpool = "1.0"
+speedtest-rs = "0.1.2"
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+chrono = "0.4"
+itertools = "0.10.1"
