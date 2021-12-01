@@ -84,6 +84,17 @@ convert2png.bat
 dir *.png
 ```
 
+最终生成的两种维度的效果图如下：
+
+IP维度
+
+![IP维度](./images/ip_graph.gv.svg)
+
+
+域名维度
+
+![域名维度](./images/domain_graph.gv.svg)
+
 ## 编译
 
 ```bash
