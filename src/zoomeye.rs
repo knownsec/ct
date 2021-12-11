@@ -29,7 +29,6 @@ pub struct IPHostInfo {
     pub total: u32,
     pub available: u32,
     pub matches: Vec<IPInfo>,
-    pub error: String
 }
 
 #[derive(Debug, Serialize, Deserialize, Default)]
@@ -121,8 +120,12 @@ impl DomainQuery {
         let client = Client::builder().default_headers(headers).build().unwrap();
         let res = client.get(&self.query_str).send()
             .expect("The access request was unexpected, please check the network.");
-        self.data = serde_json::from_str(&res.text().unwrap())
-            .expect("The output result is unexpected, please check the permissions.");
+        if res.status() == 200 {
+            self.data = serde_json::from_str(&res.text().unwrap())
+                .expect("The output result is unexpected, please check the permissions.");
+        } else {
+            println!("Query url {} error , error code {}", self.query_str, res.status());
+        }
     }
 }
 
@@ -138,8 +141,12 @@ impl ResourcesInfoQuery {
         let client = Client::builder().default_headers(headers).build().unwrap();
         let res = client.get(&self.query_str).send()
             .expect("The access request was unexpected, please check the network.");
-        self.data = serde_json::from_str(&res.text().unwrap())
-            .expect("The output result is unexpected, please check the permissions.");
+        if res.status() == 200 {
+            self.data = serde_json::from_str(&res.text().unwrap())
+                .expect("The output result is unexpected, please check the permissions.");
+        } else {
+            println!("Query url {} error , error code {}", self.query_str, res.status());
+        }
     }
 }
 

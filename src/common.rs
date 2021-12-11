@@ -284,9 +284,6 @@ fn run(cl: &mut CommandLine) {
             let mut iq = IPHostInfoQuery::new();
             iq.query_str = format!("https://api.zoomeye.org/host/search?query={}", ipdork);
             iq.query();
-            if iq.data.error.len() > 0 {
-                println!("Query {}, result: {}", ipdork, iq.data.error);
-            }
             iq.data
         }).collect::<Vec<IPHostInfo>>();
 
@@ -295,7 +292,7 @@ fn run(cl: &mut CommandLine) {
 
         //根据查询IP所得结果写入文件
         all_ip_query_result.iter().for_each(|iphi| {
-            if iphi.matches.len() > 0 && iphi.error.len() == 0 {
+            if iphi.matches.len() > 0  {
                 let ip_address = iphi.matches.get(0).unwrap().ip.clone();
                 let tmp_file = format!("./data/{}.json", ip_address);
                 let mut file = std::fs::File::create(tmp_file).unwrap();
