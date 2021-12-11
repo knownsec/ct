@@ -29,7 +29,6 @@ struct CommandLine {
     work_dir: String,
     capture: bool,
     not_zoomeye: bool,
-    not_speedtest: bool,
 }
 
 impl CommandLine {
