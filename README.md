@@ -1,4 +1,4 @@
-ct 是一款使用 rust 语言进行开发，并且基于ZoomEey域名查询以及利用域名字典进行子域名爆破的工具，同时在最终爆破完成后， 自动生成Windows/*nix下的可执行脚本。 脚本内容为自动将相应的的.gv 文件转化成为相应的
+ct 是一款使用 rust 语言进行开发，并且基于 ZoomEye 域名查询以及利用域名字典进行子域名爆破的工具，同时在最终爆破完成后， 自动生成 Windows/*nix 下的可执行脚本。 脚本内容为自动将相应的的.gv 文件转化成为相应的
 .png 文件，graphviz 下载安装请参见 [graphviz](https://graphviz.org/download/)
 支持在Windows/Linux/Mac上使用。
 
