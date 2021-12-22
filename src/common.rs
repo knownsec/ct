@@ -1,7 +1,7 @@
 use std::{env, fs, io};
 use std::collections::{HashMap, HashSet};
 use std::fs::File;
-use std::io::{BufRead, BufReader, Read, Write};
+use std::io::{BufRead, BufReader, Write};
 use std::net::SocketAddr;
 use std::path::Path;
 use std::str::FromStr;
@@ -13,7 +13,6 @@ use headless_chrome::Browser;
 use headless_chrome::protocol::browser::Bounds;
 use headless_chrome::protocol::page::ScreenshotFormat;
 use itertools::Itertools;
-use mlua::Lua;
 use reqwest::blocking::Client;
 
 use crate::dnstools::{DEFAULT_DNS_SERVERS, get_fast_dns_list, send_dns_query_packet};
