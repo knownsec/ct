@@ -325,7 +325,7 @@ fn run(cl: &mut CommandLine) {
 
     //TODO: 后续的数据处理可以使用lua进行扩展
 }
-
+/*
 #[allow(dead_code)]
 fn run_lua() {
     let mut file = std::fs::File::open("/tmp/test.lua").unwrap();
@@ -343,6 +343,7 @@ fn run_lua() {
     let path = dirs::home_dir().unwrap().as_path().to_str().unwrap().to_string();
     println!("HOME is : {}", path);
 }
+*/
 
 fn get_dict_from_file(filepath: &str) -> Vec<String> {
     let file = File::open(filepath).unwrap();
