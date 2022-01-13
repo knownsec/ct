@@ -170,7 +170,7 @@ fn check_apikey(apikey: &String) -> bool {
 }
 
 fn get_apikey() -> String {
-    fs::read_to_string(get_apikey_file()).unwrap()
+    fs::read_to_string(get_apikey_file()).except("Please use command:\n ct init APIKEY.");
 }
 
 impl ZoomEye {
