@@ -26,6 +26,7 @@ struct CommandLine {
     domain_file: String,
     thread_number: usize,
     work_dir: String,
+    query_ip: bool,
     capture: bool,
     not_zoomeye: bool,
 }
@@ -94,6 +95,12 @@ pub fn command_parse() {
         .required(false)
         .takes_value(true)
         .help("Domain dict list in a file.\nfile example....\nwww\nmail\ndev\n...")
+    ).arg(Arg::with_name("query-ip")
+        .short("q")
+        .long("query-ip")
+        .required(false)
+        .takes_value(false)
+        .help("Use zoomeye to query ip information")
     ).setting(AppSettings::ArgRequiredElseHelp)
         .get_matches();
     if matches.is_present("info") {
@@ -113,14 +120,16 @@ pub fn command_parse() {
         cl.not_zoomeye = true
     }
     if matches.is_present("T") {
-        let upload_bps = speedtest();
-        let threads = upload_bps / 8 / 120 / 30;
-        println!("\nNetwork upload speed test {} bps.\
-                  \nThe recommended number of threads is: {}\n", upload_bps, threads);
+        let (upload_bps, download_bps) = speedtest();
+        println!("\nNetwork upload speed test {} Mbps.\
+                  \nNetwork download speed test {} Mbps.\n", upload_bps/1024/1024,download_bps/1024/1024);
         return;
     }
     if let Some(domain_name) = matches.value_of("domain") {
         cl.domain = domain_name.to_string();
+    }
+    if  matches.is_present("query-ip") {
+        cl.query_ip = true;
     }
     if let Some(work_dir) = matches.value_of("work-dir") {
         cl.work_dir = work_dir.to_string();
@@ -277,7 +286,7 @@ fn run(cl: &mut CommandLine) {
 
 
     //以及相关报文数据,解析出的子域名对应IP，以及相关端口
-    if !cl.not_zoomeye {
+    if !cl.not_zoomeye && cl.query_ip {
         println!("Start get zoomeye ip data...");
         let all_ip_query_result = all_subdomain_ips.iter().map(|ipdork| {
             let mut iq = IPHostInfoQuery::new();
@@ -386,18 +395,21 @@ fn get_webpage_body(url_str: &str) -> String {
     res.text().unwrap()
 }
 
-fn speedtest() -> usize {
-    let config = speedtest_rs::speedtest::get_configuration().unwrap();
+fn speedtest() -> (usize, usize) {
+    let mut config = speedtest_rs::speedtest::get_configuration().unwrap();
     let server_list_sorted;
     let server_list = speedtest_rs::speedtest::get_server_list_with_config(&config).unwrap();
     server_list_sorted = server_list.servers_sorted_by_distance(&config);
     let latency_test_result = speedtest_rs::speedtest::get_best_server_based_on_latency(&server_list_sorted[..]).unwrap();
     let best_server = latency_test_result.server;
-    let inner_upload_measurement;
-    inner_upload_measurement =
+    let inner_upload_measurement=
         speedtest_rs::speedtest::test_upload_with_progress_and_config(best_server, || {
             print!(".");
             io::stdout().flush().unwrap();
-        }, &config).unwrap();
-    inner_upload_measurement.bps_f64() as usize
+        }, &config).expect("Upload speedtest error.");
+    let inner_download_measurement = speedtest_rs::speedtest::test_download_with_progress_and_config(best_server, ||{
+        print!(".");
+        io::stdout().flush().unwrap();
+    }, &mut config).expect("Download speedtest error.");
+    (inner_upload_measurement.bps_f64() as usize, inner_download_measurement.bps_f64() as usize)
 }
