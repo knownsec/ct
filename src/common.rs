@@ -42,7 +42,7 @@ pub fn command_parse() {
     let mut cl = CommandLine::new();
     cl.thread_number = num_cpus::get();
     let matches = App::new("ct")
-        .version("1.0.0")
+        .version("1.0.5")
         .about("Collect information tools about the target domain.")
         .author("Autor: rungobier@knownsec 404 team <rungobier@gmail.com>")
         .arg(Arg::with_name("domain")
