@@ -17,7 +17,7 @@ Windows 编译环境安装请下载[rustup-init.exe](https://static.rust-lang.or
 从[releases](https://github.com/knownsec/ct/releases "releases")下载二进制文件。
 
 ```
-ct 1.0.0
+ct 1.0.5
 Autor: rungobier@knownsec 404 team <rungobier@gmail.com>
 Collect information tools about the target domain.
 
