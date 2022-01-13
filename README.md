@@ -29,6 +29,7 @@ FLAGS:
     -Z               Do not use zoomeye data
     -h, --help       Prints help information
     -i, --info       Get ZoomEye account base info
+    -q, --query-ip    Use zoomeye to query ip information
     -V, --version    Prints version information
 
 OPTIONS:
