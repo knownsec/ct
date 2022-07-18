@@ -1,6 +1,6 @@
 [package]
 name = "ct"
-version = "1.0.0"
+version = "1.0.9"
 authors = ["rungobier@knownsec 404 team <rungobier@gmail.com>"]
 edition = "2018"
 
@@ -21,3 +21,5 @@ speedtest-rs = "0.1.2"
 reqwest = { version = "0.11", features = ["blocking", "json"] }
 chrono = "0.4"
 itertools = "0.10.1"
+tldextract = "0.5.1"
+commonregex = "0.2.0"

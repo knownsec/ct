@@ -4,7 +4,6 @@
 mod dnstools;
 mod common;
 mod zoomeye;
-
 fn main() {
     common::command_parse();
 }

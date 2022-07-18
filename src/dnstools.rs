@@ -1,6 +1,6 @@
 use std::collections::{HashMap, HashSet};
 use std::io::Write;
-use std::net::{Ipv4Addr, SocketAddr};
+use std::net::SocketAddr;
 use std::str::FromStr;
 use std::sync::{Arc, Mutex};
 use std::sync::mpsc::{channel, Sender};
@@ -9,11 +9,10 @@ use std::time::Instant;
 
 use dnsclient::sync::DNSClient;
 use dnsclient::UpstreamServer;
+use itertools::Itertools;
 use threadpool::ThreadPool;
 
 type SortedDNSList = Vec<(String, u32)>;
-
-type SubDomainMap = HashMap<String, Vec<Ipv4Addr>>;
 pub const DEFAULT_DNS_SERVERS: [&'static str; 13] = [
     "119.29.29.29", "223.5.5.5", "223.6.6.6", "180.76.76.76",
     "114.114.114.114", "114.114.115.115", "1.1.1.1", "8.8.8.8",
@@ -59,23 +58,23 @@ pub fn get_dns_avg_time(dns_server: &str, count: u32) -> u32 {
 }
 
 
-fn run_start(pool: &ThreadPool, dns_client: DNSClient, domain_name: String, tx: Sender<(String, Vec<Ipv4Addr>)>) {
+fn run_start(pool: &ThreadPool, dns_client: DNSClient, domain_name: String, tx: Sender<(String, Vec<String>)>) {
     pool.execute(move || {
         if let Ok(result) = dns_client.query_a(domain_name.as_str()) {
             if !result.is_empty() {
-                tx.send((domain_name, result)).unwrap();
+                tx.send((domain_name, result.iter().map(|x| { x.to_string() }).collect_vec())).unwrap();
             }
         }
     })
 }
 
-pub fn send_dns_query_packet(threads: usize, all_domains: &HashSet<String>, dns_servers: Vec<UpstreamServer>) -> SubDomainMap {
+pub fn send_dns_query_packet(threads: usize, all_domains: &HashSet<String>, dns_servers: Vec<UpstreamServer>) -> HashMap<String, Vec<String>> {
     let mut dns_client = DNSClient::new(dns_servers);
     let mut file = std::fs::File::create("subdomain_ips.txt").unwrap();
     let (tx, rx) = channel();
     dns_client.set_timeout(Duration::from_millis(100));
     let pool = ThreadPool::new(threads);
-    let mut s = SubDomainMap::new();
+    let mut s: HashMap<String, Vec<String>> = HashMap::new();
     all_domains.into_iter().for_each(|x| {
         let tx = tx.clone();
         let domain = String::from(x.to_string());
