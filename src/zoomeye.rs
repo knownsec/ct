@@ -174,6 +174,8 @@ fn get_apikey() -> String {
     apikey
 }
 
+
+
 impl ZoomEye {
     pub fn init(apikey: String) {
         if check_apikey(&apikey) {
