@@ -154,11 +154,11 @@ impl ResourcesInfoQuery {
 
 
 fn get_apikey_file() -> String {
-    let os_type = std::env::consts::OS;
+    let Os_type = std::env::consts::OS;
     let apikey_dir = format!("{}/.config/zoomeye/setting", dirs::home_dir().unwrap().display());
     fs::create_dir_all(apikey_dir.clone()).unwrap();
     let mut file_path = format!("{}/apikey", apikey_dir.clone());
-    if os_type.eq("windows") {
+    if Os_type.eq("windows") {
         file_path = file_path.replace("/", "\\");
     }
     file_path
