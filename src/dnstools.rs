@@ -21,17 +21,17 @@ pub const DEFAULT_DNS_SERVERS: [&'static str; 13] = [
 
 pub fn get_fast_dns_list(dns_vec: &HashSet<String>, thread_num: usize) -> SortedDNSList {
     let result = Arc::new(Mutex::new(vec![]));
-    let tp = ThreadPool::new(thread_num);
+    let threadPool = ThreadPool::new(thread_num);
     dns_vec.into_iter().for_each(|s| {
         let res = result.clone();
         let tmp_s = format!("{}:53", s);
-        tp.execute(move || {
+        threadPool.execute(move || {
             let mut mres = res.lock().unwrap();
             let avg = get_dns_avg_time(tmp_s.as_str(), 10);
             mres.push((tmp_s.to_string(), avg));
         })
     });
-    tp.join();
+    threadPool.join();
     let mut data = result.lock().unwrap().clone();
     data.sort_by_key(|e| e.1);
     data
@@ -43,12 +43,12 @@ pub fn get_dns_avg_time(dns_server: &str, count: u32) -> u32 {
     let dns_servers = vec![UpstreamServer::new(
         SocketAddr::from_str(dns_server).unwrap(),
     )];
-    let mut dns_client = DNSClient::new(dns_servers);
-    dns_client.set_timeout(Duration::from_millis(100));
+    let mut dnsClient = DNSClient::new(dns_servers);
+    dnsClient.set_timeout(Duration::from_millis(100));
     let mut sum = 0;
     for _ in 0..count {
         let start = Instant::now();
-        if let Ok(result) = dns_client.query_a("www.baidu.com") {
+        if let Ok(result) = dnsClient.query_a("www.baidu.com") {
             if !result.is_empty() {
                 sum += start.elapsed().as_millis() as u32;
             }
