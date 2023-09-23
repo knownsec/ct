@@ -428,7 +428,7 @@ pub fn command_parse() {
     if matches.is_present("T") {
         let (upload_bps, download_bps) = speedtest();
         println!("\nNetwork upload speed test {} Mbps.\
-                  \nNetwork download speed test {} Mbps.\n", upload_bps / 1024 / 1024, download_bps / 1024 / 1024);
+                  \nNetwork download speed test {} Mbps.\n", upload_bps / (1024 * 1024), download_bps / (1024 * 1024));
         return;
     }
     if let Some(domain_name) = matches.value_of("domain") {
