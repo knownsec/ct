@@ -742,10 +742,10 @@ fn run_lua() {
     let mut contents = String::new();
     let _ = file.read_to_string(&mut contents).unwrap();
     let lua = Lua::new();
-    let globals = lua.globals();
-    globals.set("gstr", "hello").unwrap();
+    let global_s = lua.globals();
+    global_s.set("gstr", "hello").unwrap();
     lua.load(&contents).exec().unwrap();
-    let lua_version: String = globals.get("_VERSION").unwrap();
+    let lua_version: String = global_s.get("_VERSION").unwrap();
     for _ in 1..10 {
         println!("###################################");
     }
