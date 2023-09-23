@@ -21,7 +21,7 @@ pub const DEFAULT_DNS_SERVERS: [&'static str; 13] = [
 
 pub fn get_fast_dns_list(dns_vec: &HashSet<String>, thread_num: usize) -> SortedDNSList {
     let result = Arc::new(Mutex::new(vec![]));
-    let tp = ThreadPool::new(thread_num);
+    let tps = ThreadPool::new(thread_num);
     dns_vec.into_iter().for_each(|s| {
         let res = result.clone();
         let tmp_s = format!("{}:53", s);
@@ -31,7 +31,7 @@ pub fn get_fast_dns_list(dns_vec: &HashSet<String>, thread_num: usize) -> Sorted
             mres.push((tmp_s.to_string(), avg));
         })
     });
-    tp.join();
+    tps.join();
     let mut data = result.lock().unwrap().clone();
     data.sort_by_key(|e| e.1);
     data
