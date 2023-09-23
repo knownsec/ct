@@ -32,9 +32,9 @@ pub fn get_fast_dns_list(dns_vec: &HashSet<String>, thread_num: usize) -> Sorted
         })
     });
     tp.join();
-    let mut data = result.lock().unwrap().clone();
-    data.sort_by_key(|e| e.1);
-    data
+    let mut listdata = result.lock().unwrap().clone();
+    listdata.sort_by_key(|e| e.1);
+    listdata
 }
 
 
