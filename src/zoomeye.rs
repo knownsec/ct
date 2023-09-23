@@ -136,8 +136,8 @@ impl ResourcesInfoQuery {
     }
     pub fn query(&mut self) {
         let mut headers = header::HeaderMap::new();
-        let apikey = get_apikey().trim().parse().unwrap();
-        headers.insert("API-KEY", apikey);
+        let key = get_apikey().trim().parse().unwrap();
+        headers.insert("API-KEY", key);
         let client = Client::builder().default_headers(headers).build().unwrap();
         let res = client.get(&self.query_str).send()
             .expect("The access request was unexpected, please check the network.");
