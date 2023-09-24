@@ -328,7 +328,7 @@ pub fn command_parse() {
         Arg::with_name("apikey")
             .long("init")
             .takes_value(true)
-            .help("Initialize the ZoomEye api key ")
+            .help("Initialize the ZoomEye api key")
     ).arg(
         Arg::with_name("info")
             .short("i")
