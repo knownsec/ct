@@ -136,8 +136,8 @@ impl ResourcesInfoQuery {
     }
     pub fn query(&mut self) {
         let mut headers = header::HeaderMap::new();
-        let apikey = get_apikey().trim().parse().unwrap();
-        headers.insert("API-KEY", apikey);
+        let key = get_apikey().trim().parse().unwrap();
+        headers.insert("API-KEY", key);
         let client = Client::builder().default_headers(headers).build().unwrap();
         let res = client.get(&self.query_str).send()
             .expect("The access request was unexpected, please check the network.");
@@ -149,9 +149,6 @@ impl ResourcesInfoQuery {
         }
     }
 }
-
-
-
 
 fn get_apikey_file() -> String {
     let Os_type = std::env::consts::OS;
@@ -173,6 +170,8 @@ fn get_apikey() -> String {
     let apikey = fs::read_to_string(get_apikey_file()).expect("\nPlease use command:\nct --init APIKEY.\n");
     apikey
 }
+
+
 
 impl ZoomEye {
     pub fn init(apikey: String) {

@@ -48,7 +48,7 @@ impl CommandLine {
 
 pub fn command_parse() {
     let mut cl = CommandLine::new();
-    //初始化过滤cdn信息//////////////////////////////////////////////////////////////
+    //初始化过滤cdn信息
     cl.extended_filtering.insert("15cdn.com".to_string());
     cl.extended_filtering.insert("tzcdn.cn".to_string());
     cl.extended_filtering.insert("cedexis.net".to_string());
@@ -315,7 +315,7 @@ pub fn command_parse() {
     cl.extended_filtering.insert("ncname.com".to_string());
     cl.extended_filtering.insert("alipaydns.com".to_string());
     cl.extended_filtering.insert("wscloudcdn.com".to_string());
-    ////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////
     cl.thread_number = num_cpus::get();
     let matches = App::new("ct")
         .version("1.0.9")
@@ -428,7 +428,7 @@ pub fn command_parse() {
     if matches.is_present("T") {
         let (upload_bps, download_bps) = speedtest();
         println!("\nNetwork upload speed test {} Mbps.\
-                  \nNetwork download speed test {} Mbps.\n", upload_bps / 1024 / 1024, download_bps / 1024 / 1024);
+                  \nNetwork download speed test {} Mbps.\n", upload_bps / (1024 * 1024), download_bps / (1024 * 1024));
         return;
     }
     if let Some(domain_name) = matches.value_of("domain") {
@@ -686,10 +686,10 @@ fn run(cl: &mut CommandLine) {
     convert_sh.write_all(sh_template.as_bytes()).unwrap();
     convert_bat.write_all(bat_template.as_bytes()).unwrap();
 
-
+    
     //以及相关报文数据,解析出的子域名对应IP，以及相关端口
     if !cl.not_zoomeye && cl.query_ip {
-        println!("Start get zoomeye ip data...");
+        println!("Start get zoomeye ip data......");
         let all_ip_query_result = all_ips.iter().map(|ipdork| {
             let mut iq = IPHostInfoQuery::new();
             iq.query_str = format!("https://api.zoomeye.org/host/search?query=ip:{}", ipdork);
@@ -798,21 +798,21 @@ fn get_webpage_body(url_str: &str) -> String {
 }
 
 fn speedtest() -> (usize, usize) {
-    let mut config = speedtest_rs::speedtest::get_configuration().unwrap();
+    let mut speedtestconfig = speedtest_rs::speedtest::get_configuration().unwrap();
     let server_list_sorted;
-    let server_list = speedtest_rs::speedtest::get_server_list_with_config(&config).unwrap();
-    server_list_sorted = server_list.servers_sorted_by_distance(&config);
+    let server_list = speedtest_rs::speedtest::get_server_list_with_config(&speedtestconfig).unwrap();
+    server_list_sorted = server_list.servers_sorted_by_distance(&speedtestconfig);
     let latency_test_result = speedtest_rs::speedtest::get_best_server_based_on_latency(&server_list_sorted[..]).unwrap();
     let best_server = latency_test_result.server;
     let inner_upload_measurement =
         speedtest_rs::speedtest::test_upload_with_progress_and_config(best_server, || {
             print!(".");
             io::stdout().flush().unwrap();
-        }, &config).expect("Upload speedtest error.");
+        }, &speedtestconfig).expect("Upload speedtest error.");
     let inner_download_measurement = speedtest_rs::speedtest::test_download_with_progress_and_config(best_server, || {
         print!(".");
         io::stdout().flush().unwrap();
-    }, &mut config).expect("Download speedtest error.");
+    }, &mut speedtestconfig).expect("Download speedtest error.");
     (inner_upload_measurement.bps_f64() as usize, inner_download_measurement.bps_f64() as usize)
 }
 
