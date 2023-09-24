@@ -738,9 +738,9 @@ fn run(cl: &mut CommandLine) {
 /*
 #[allow(dead_code)]
 fn run_lua() {
-    let mut file = std::fs::File::open("/tmp/test.lua").unwrap();
+    let mut files = std::fs::File::open("/tmp/test.lua").unwrap();
     let mut contents = String::new();
-    let _ = file.read_to_string(&mut contents).unwrap();
+    let _ = files.read_to_string(&mut contents).unwrap();
     let lua = Lua::new();
     let global_s = lua.globals();
     global_s.set("gstr", "hello").unwrap();
