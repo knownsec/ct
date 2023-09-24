@@ -798,21 +798,21 @@ fn get_webpage_body(url_str: &str) -> String {
 }
 
 fn speedtest() -> (usize, usize) {
-    let mut config = speedtest_rs::speedtest::get_configuration().unwrap();
+    let mut speedtestconfig = speedtest_rs::speedtest::get_configuration().unwrap();
     let server_list_sorted;
-    let server_list = speedtest_rs::speedtest::get_server_list_with_config(&config).unwrap();
-    server_list_sorted = server_list.servers_sorted_by_distance(&config);
+    let server_list = speedtest_rs::speedtest::get_server_list_with_config(&speedtestconfig).unwrap();
+    server_list_sorted = server_list.servers_sorted_by_distance(&speedtestconfig);
     let latency_test_result = speedtest_rs::speedtest::get_best_server_based_on_latency(&server_list_sorted[..]).unwrap();
     let best_server = latency_test_result.server;
     let inner_upload_measurement =
         speedtest_rs::speedtest::test_upload_with_progress_and_config(best_server, || {
             print!(".");
             io::stdout().flush().unwrap();
-        }, &config).expect("Upload speedtest error.");
+        }, &speedtestconfig).expect("Upload speedtest error.");
     let inner_download_measurement = speedtest_rs::speedtest::test_download_with_progress_and_config(best_server, || {
         print!(".");
         io::stdout().flush().unwrap();
-    }, &mut config).expect("Download speedtest error.");
+    }, &mut speedtestconfig).expect("Download speedtest error.");
     (inner_upload_measurement.bps_f64() as usize, inner_download_measurement.bps_f64() as usize)
 }
 
