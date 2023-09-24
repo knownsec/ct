@@ -686,10 +686,9 @@ fn run(cl: &mut CommandLine) {
     convert_sh.write_all(sh_template.as_bytes()).unwrap();
     convert_bat.write_all(bat_template.as_bytes()).unwrap();
 
-
     //以及相关报文数据,解析出的子域名对应IP，以及相关端口
     if !cl.not_zoomeye && cl.query_ip {
-        println!("Start get zoomeye ip data...");
+        println!("Start get zoomeye ip data......");
         let all_ip_query_result = all_ips.iter().map(|ipdork| {
             let mut iq = IPHostInfoQuery::new();
             iq.query_str = format!("https://api.zoomeye.org/host/search?query=ip:{}", ipdork);
