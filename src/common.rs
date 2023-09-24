@@ -21,8 +21,9 @@ use crate::dnstools::{DEFAULT_DNS_SERVERS, get_fast_dns_list, send_dns_query_pac
 use crate::zoomeye::{IPHostInfo, IPHostInfoQuery, ZoomEye};
 use crate::zoomeye::DomainQuery;
 
-//Extended analysis 扩展分析
+
 //Extended filtering 扩展过滤
+//Extended analysis 扩展分析
 #[derive(Debug, Default)]
 struct CommandLine {
     domain: String,
