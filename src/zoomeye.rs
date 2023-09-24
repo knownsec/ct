@@ -177,7 +177,7 @@ fn get_apikey() -> String {
 impl ZoomEye {
     pub fn init(apikey: String) {
         if check_apikey(&apikey) {
-            let mut file = std::fs::File::create(get_apikey_file()).expect("create api key file failed");
+            let mut file = std::fs::File::create(get_apikey_file()).expect("create api key file failed!");
             file.write_all(apikey.as_bytes()).expect("write apikey failed");
         }
     }
