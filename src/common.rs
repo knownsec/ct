@@ -26,7 +26,7 @@ use crate::zoomeye::DomainQuery;
 #[derive(Debug, Default)]
 struct CommandLine {
     domain: String,
-    dns_file: String,
+    dnsFile: String,
     domain_file: String,
     thread_number: usize,
     query_number: usize,
@@ -548,8 +548,8 @@ fn run(cl: &mut CommandLine) {
     }
 
     //获取指定的文件内的DNS服务器清单
-    if !cl.dns_file.is_empty() {
-        let dns_servers = get_dict_from_file(cl.dns_file.as_str());
+    if !cl.dnsFile.is_empty() {
+        let dns_servers = get_dict_from_file(cl.dnsFile.as_str());
         dns_servers.iter().for_each(|ds| {
             all_hs_dns_servers.insert(ds.to_string());
         });
