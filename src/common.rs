@@ -47,276 +47,276 @@ impl CommandLine {
 
 
 pub fn command_parse() {
-    let mut commandLine = CommandLine::new();
+    let mut cl = CommandLine::new();
     //初始化过滤cdn信息//////////////////////////////////////////////////////////////
-    commandLine.extended_filtering.insert("15cdn.com".to_string());
-    commandLine.extended_filtering.insert("tzcdn.cn".to_string());
-    commandLine.extended_filtering.insert("cedexis.net".to_string());
-    commandLine.extended_filtering.insert("cdxcn.cn".to_string());
-    commandLine.extended_filtering.insert("qhcdn.com".to_string());
-    commandLine.extended_filtering.insert("qh-cdn.com".to_string());
-    commandLine.extended_filtering.insert("qihucdn.com".to_string());
-    commandLine.extended_filtering.insert("360cdn.com".to_string());
-    commandLine.extended_filtering.insert("360cloudwaf.com".to_string());
-    commandLine.extended_filtering.insert("360anyu.com".to_string());
-    commandLine.extended_filtering.insert("360safedns.com".to_string());
-    commandLine.extended_filtering.insert("360wzws.com".to_string());
-    commandLine.extended_filtering.insert("akamai.net".to_string());
-    commandLine.extended_filtering.insert("akamaiedge.net".to_string());
-    commandLine.extended_filtering.insert("ytcdn.net".to_string());
-    commandLine.extended_filtering.insert("edgesuite.net".to_string());
-    commandLine.extended_filtering.insert("akamaitech.net".to_string());
-    commandLine.extended_filtering.insert("akamaitechnologies.com".to_string());
-    commandLine.extended_filtering.insert("edgekey.net".to_string());
-    commandLine.extended_filtering.insert("tl88.net".to_string());
-    commandLine.extended_filtering.insert("cloudfront.net".to_string());
-    commandLine.extended_filtering.insert("worldcdn.net".to_string());
-    commandLine.extended_filtering.insert("worldssl.net".to_string());
-    commandLine.extended_filtering.insert("cdn77.org".to_string());
-    commandLine.extended_filtering.insert("panthercdn.com".to_string());
-    commandLine.extended_filtering.insert("cdnga.net".to_string());
-    commandLine.extended_filtering.insert("cdngc.net".to_string());
-    commandLine.extended_filtering.insert("gccdn.net".to_string());
-    commandLine.extended_filtering.insert("gccdn.cn".to_string());
-    commandLine.extended_filtering.insert("akamaized.net".to_string());
-    commandLine.extended_filtering.insert("126.net".to_string());
-    commandLine.extended_filtering.insert("163jiasu.com".to_string());
-    commandLine.extended_filtering.insert("amazonaws.com".to_string());
-    commandLine.extended_filtering.insert("cdn77.net".to_string());
-    commandLine.extended_filtering.insert("cdnify.io".to_string());
-    commandLine.extended_filtering.insert("cdnsun.net".to_string());
-    commandLine.extended_filtering.insert("bdydns.com".to_string());
-    commandLine.extended_filtering.insert("ccgslb.com.cn".to_string());
-    commandLine.extended_filtering.insert("ccgslb.net".to_string());
-    commandLine.extended_filtering.insert("ccgslb.com".to_string());
-    commandLine.extended_filtering.insert("ccgslb.cn".to_string());
-    commandLine.extended_filtering.insert("c3cache.net".to_string());
-    commandLine.extended_filtering.insert("c3dns.net".to_string());
-    commandLine.extended_filtering.insert("chinacache.net".to_string());
-    commandLine.extended_filtering.insert("wswebcdn.com".to_string());
-    commandLine.extended_filtering.insert("lxdns.com".to_string());
-    commandLine.extended_filtering.insert("wswebpic.com".to_string());
-    commandLine.extended_filtering.insert("cloudflare.net".to_string());
-    commandLine.extended_filtering.insert("akadns.net".to_string());
-    commandLine.extended_filtering.insert("chinanetcenter.com".to_string());
-    commandLine.extended_filtering.insert("customcdn.com.cn".to_string());
-    commandLine.extended_filtering.insert("customcdn.cn".to_string());
-    commandLine.extended_filtering.insert("51cdn.com".to_string());
-    commandLine.extended_filtering.insert("wscdns.com".to_string());
-    commandLine.extended_filtering.insert("cdn20.com".to_string());
-    commandLine.extended_filtering.insert("wsdvs.com".to_string());
-    commandLine.extended_filtering.insert("wsglb0.com".to_string());
-    commandLine.extended_filtering.insert("speedcdns.com".to_string());
-    commandLine.extended_filtering.insert("wtxcdn.com".to_string());
-    commandLine.extended_filtering.insert("wsssec.com".to_string());
-    commandLine.extended_filtering.insert("fastly.net".to_string());
-    commandLine.extended_filtering.insert("fastlylb.net".to_string());
-    commandLine.extended_filtering.insert("hwcdn.net".to_string());
-    commandLine.extended_filtering.insert("incapdns.net".to_string());
-    commandLine.extended_filtering.insert("kxcdn.com.".to_string());
-    commandLine.extended_filtering.insert("lswcdn.net".to_string());
-    commandLine.extended_filtering.insert("mwcloudcdn.com".to_string());
-    commandLine.extended_filtering.insert("mwcname.com".to_string());
-    commandLine.extended_filtering.insert("azureedge.net".to_string());
-    commandLine.extended_filtering.insert("msecnd.net".to_string());
-    commandLine.extended_filtering.insert("mschcdn.com".to_string());
-    commandLine.extended_filtering.insert("v0cdn.net".to_string());
-    commandLine.extended_filtering.insert("azurewebsites.net".to_string());
-    commandLine.extended_filtering.insert("azurewebsites.windows.net".to_string());
-    commandLine.extended_filtering.insert("trafficmanager.net".to_string());
-    commandLine.extended_filtering.insert("cloudapp.net".to_string());
-    commandLine.extended_filtering.insert("chinacloudsites.cn".to_string());
-    commandLine.extended_filtering.insert("spdydns.com".to_string());
-    commandLine.extended_filtering.insert("jiashule.com".to_string());
-    commandLine.extended_filtering.insert("jiasule.org".to_string());
-    commandLine.extended_filtering.insert("365cyd.cn".to_string());
-    commandLine.extended_filtering.insert("huaweicloud.com".to_string());
-    commandLine.extended_filtering.insert("cdnhwc1.com".to_string());
-    commandLine.extended_filtering.insert("cdnhwc2.com".to_string());
-    commandLine.extended_filtering.insert("cdnhwc3.com".to_string());
-    commandLine.extended_filtering.insert("dnion.com".to_string());
-    commandLine.extended_filtering.insert("ewcache.com".to_string());
-    commandLine.extended_filtering.insert("globalcdn.cn".to_string());
-    commandLine.extended_filtering.insert("tlgslb.com".to_string());
-    commandLine.extended_filtering.insert("fastcdn.com".to_string());
-    commandLine.extended_filtering.insert("flxdns.com".to_string());
-    commandLine.extended_filtering.insert("dlgslb.cn".to_string());
-    commandLine.extended_filtering.insert("newdefend.cn".to_string());
-    commandLine.extended_filtering.insert("ffdns.net".to_string());
-    commandLine.extended_filtering.insert("aocdn.com".to_string());
-    commandLine.extended_filtering.insert("bsgslb.cn".to_string());
-    commandLine.extended_filtering.insert("qingcdn.com".to_string());
-    commandLine.extended_filtering.insert("bsclink.cn".to_string());
-    commandLine.extended_filtering.insert("trpcdn.net".to_string());
-    commandLine.extended_filtering.insert("anquan.io".to_string());
-    commandLine.extended_filtering.insert("cloudglb.com".to_string());
-    commandLine.extended_filtering.insert("fastweb.com".to_string());
-    commandLine.extended_filtering.insert("fastwebcdn.com".to_string());
-    commandLine.extended_filtering.insert("cloudcdn.net".to_string());
-    commandLine.extended_filtering.insert("fwcdn.com".to_string());
-    commandLine.extended_filtering.insert("fwdns.net".to_string());
-    commandLine.extended_filtering.insert("hadns.net".to_string());
-    commandLine.extended_filtering.insert("hacdn.net".to_string());
-    commandLine.extended_filtering.insert("cachecn.com".to_string());
-    commandLine.extended_filtering.insert("qingcache.com".to_string());
-    commandLine.extended_filtering.insert("qingcloud.com".to_string());
-    commandLine.extended_filtering.insert("frontwize.com".to_string());
-    commandLine.extended_filtering.insert("msscdn.com".to_string());
-    commandLine.extended_filtering.insert("800cdn.com".to_string());
-    commandLine.extended_filtering.insert("tbcache.com".to_string());
-    commandLine.extended_filtering.insert("aliyun-inc.com".to_string());
-    commandLine.extended_filtering.insert("aliyuncs.com".to_string());
-    commandLine.extended_filtering.insert("alikunlun.net".to_string());
-    commandLine.extended_filtering.insert("alikunlun.com".to_string());
-    commandLine.extended_filtering.insert("alicdn.com".to_string());
-    commandLine.extended_filtering.insert("aligaofang.com".to_string());
-    commandLine.extended_filtering.insert("yundunddos.com".to_string());
-    commandLine.extended_filtering.insert("kunlun(.*.to_string()).com".to_string());
-    commandLine.extended_filtering.insert("cdngslb.com".to_string());
-    commandLine.extended_filtering.insert("yunjiasu-cdn.net".to_string());
-    commandLine.extended_filtering.insert("momentcdn.com".to_string());
-    commandLine.extended_filtering.insert("aicdn.com".to_string());
-    commandLine.extended_filtering.insert("qbox.me".to_string());
-    commandLine.extended_filtering.insert("qiniu.com".to_string());
-    commandLine.extended_filtering.insert("qiniudns.com".to_string());
-    commandLine.extended_filtering.insert("jcloudcs.com".to_string());
-    commandLine.extended_filtering.insert("jdcdn.com".to_string());
-    commandLine.extended_filtering.insert("qianxun.com".to_string());
-    commandLine.extended_filtering.insert("jcloudlb.com".to_string());
-    commandLine.extended_filtering.insert("jcloud-cdn.com".to_string());
-    commandLine.extended_filtering.insert("maoyun.tv".to_string());
-    commandLine.extended_filtering.insert("maoyundns.com".to_string());
-    commandLine.extended_filtering.insert("xgslb.net".to_string());
-    commandLine.extended_filtering.insert("ucloud.cn".to_string());
-    commandLine.extended_filtering.insert("ucloud.com.cn".to_string());
-    commandLine.extended_filtering.insert("cdndo.com".to_string());
-    commandLine.extended_filtering.insert("zenlogic.net".to_string());
-    commandLine.extended_filtering.insert("ogslb.com".to_string());
-    commandLine.extended_filtering.insert("uxengine.net".to_string());
-    commandLine.extended_filtering.insert("tan14.net".to_string());
-    commandLine.extended_filtering.insert("verycloud.cn".to_string());
-    commandLine.extended_filtering.insert("verycdn.net".to_string());
-    commandLine.extended_filtering.insert("verygslb.com".to_string());
-    commandLine.extended_filtering.insert("xundayun.cn".to_string());
-    commandLine.extended_filtering.insert("xundayun.com".to_string());
-    commandLine.extended_filtering.insert("speedycloud.cc".to_string());
-    commandLine.extended_filtering.insert("mucdn.net".to_string());
-    commandLine.extended_filtering.insert("nucdn.net".to_string());
-    commandLine.extended_filtering.insert("alphacdn.net".to_string());
-    commandLine.extended_filtering.insert("systemcdn.net".to_string());
-    commandLine.extended_filtering.insert("edgecastcdn.net".to_string());
-    commandLine.extended_filtering.insert("zetacdn.net".to_string());
-    commandLine.extended_filtering.insert("coding.io".to_string());
-    commandLine.extended_filtering.insert("coding.me".to_string());
-    commandLine.extended_filtering.insert("gitlab.io".to_string());
-    commandLine.extended_filtering.insert("github.io".to_string());
-    commandLine.extended_filtering.insert("herokuapp.com".to_string());
-    commandLine.extended_filtering.insert("googleapis.com".to_string());
-    commandLine.extended_filtering.insert("netdna.com".to_string());
-    commandLine.extended_filtering.insert("netdna-cdn.com".to_string());
-    commandLine.extended_filtering.insert("netdna-ssl.com".to_string());
-    commandLine.extended_filtering.insert("cdntip.com".to_string());
-    commandLine.extended_filtering.insert("dnsv1.com".to_string());
-    commandLine.extended_filtering.insert("tencdns.net".to_string());
-    commandLine.extended_filtering.insert("dayugslb.com".to_string());
-    commandLine.extended_filtering.insert("tcdnvod.com".to_string());
-    commandLine.extended_filtering.insert("tdnsv5.com".to_string());
-    commandLine.extended_filtering.insert("ksyuncdn.com".to_string());
-    commandLine.extended_filtering.insert("ks-cdn.com".to_string());
-    commandLine.extended_filtering.insert("ksyuncdn-k1.com".to_string());
-    commandLine.extended_filtering.insert("netlify.com".to_string());
-    commandLine.extended_filtering.insert("zeit.co".to_string());
-    commandLine.extended_filtering.insert("zeit-cdn.net".to_string());
-    commandLine.extended_filtering.insert("b-cdn.net".to_string());
-    commandLine.extended_filtering.insert("lsycdn.com".to_string());
-    commandLine.extended_filtering.insert("scsdns.com".to_string());
-    commandLine.extended_filtering.insert("quic.cloud".to_string());
-    commandLine.extended_filtering.insert("flexbalancer.net".to_string());
-    commandLine.extended_filtering.insert("gcdn.co".to_string());
-    commandLine.extended_filtering.insert("sangfordns.com".to_string());
-    commandLine.extended_filtering.insert("stspg-customer.com".to_string());
-    commandLine.extended_filtering.insert("turbobytes.net".to_string());
-    commandLine.extended_filtering.insert("turbobytes-cdn.com".to_string());
-    commandLine.extended_filtering.insert("att-dsa.net".to_string());
-    commandLine.extended_filtering.insert("azioncdn.net".to_string());
-    commandLine.extended_filtering.insert("belugacdn.com".to_string());
-    commandLine.extended_filtering.insert("cachefly.net".to_string());
-    commandLine.extended_filtering.insert("inscname.net".to_string());
-    commandLine.extended_filtering.insert("insnw.net".to_string());
-    commandLine.extended_filtering.insert("internapcdn.net".to_string());
-    commandLine.extended_filtering.insert("footprint.net".to_string());
-    commandLine.extended_filtering.insert("llnwi.net".to_string());
-    commandLine.extended_filtering.insert("llnwd.net".to_string());
-    commandLine.extended_filtering.insert("unud.net".to_string());
-    commandLine.extended_filtering.insert("lldns.net".to_string());
-    commandLine.extended_filtering.insert("stackpathdns.com".to_string());
-    commandLine.extended_filtering.insert("stackpathcdn.com".to_string());
-    commandLine.extended_filtering.insert("mncdn.com".to_string());
-    commandLine.extended_filtering.insert("rncdn1.com".to_string());
-    commandLine.extended_filtering.insert("simplecdn.net".to_string());
-    commandLine.extended_filtering.insert("swiftserve.com".to_string());
-    commandLine.extended_filtering.insert("bitgravity.com".to_string());
-    commandLine.extended_filtering.insert("zenedge.net".to_string());
-    commandLine.extended_filtering.insert("biliapi.com".to_string());
-    commandLine.extended_filtering.insert("hdslb.net".to_string());
-    commandLine.extended_filtering.insert("hdslb.com".to_string());
-    commandLine.extended_filtering.insert("xwaf.cn".to_string());
-    commandLine.extended_filtering.insert("shifen.com".to_string());
-    commandLine.extended_filtering.insert("sinajs.cn".to_string());
-    commandLine.extended_filtering.insert("tencent-cloud.net".to_string());
-    commandLine.extended_filtering.insert("elemecdn.com".to_string());
-    commandLine.extended_filtering.insert("sinaedge.com".to_string());
-    commandLine.extended_filtering.insert("sina.com.cn".to_string());
-    commandLine.extended_filtering.insert("sinacdn.com".to_string());
-    commandLine.extended_filtering.insert("sinasws.com".to_string());
-    commandLine.extended_filtering.insert("saebbs.com".to_string());
-    commandLine.extended_filtering.insert("websitecname.cn".to_string());
-    commandLine.extended_filtering.insert("cdncenter.cn".to_string());
-    commandLine.extended_filtering.insert("vhostgo.com".to_string());
-    commandLine.extended_filtering.insert("jsd.cc".to_string());
-    commandLine.extended_filtering.insert("powercdn.cn".to_string());
-    commandLine.extended_filtering.insert("21vokglb.cn".to_string());
-    commandLine.extended_filtering.insert("21vianet.com.cn".to_string());
-    commandLine.extended_filtering.insert("21okglb.cn".to_string());
-    commandLine.extended_filtering.insert("21speedcdn.com".to_string());
-    commandLine.extended_filtering.insert("21cvcdn.com".to_string());
-    commandLine.extended_filtering.insert("okcdn.com".to_string());
-    commandLine.extended_filtering.insert("okglb.com".to_string());
-    commandLine.extended_filtering.insert("cdnetworks.net".to_string());
-    commandLine.extended_filtering.insert("txnetworks.cn".to_string());
-    commandLine.extended_filtering.insert("cdnnetworks.com".to_string());
-    commandLine.extended_filtering.insert("txcdn.cn".to_string());
-    commandLine.extended_filtering.insert("cdnunion.net".to_string());
-    commandLine.extended_filtering.insert("cdnunion.com".to_string());
-    commandLine.extended_filtering.insert("mygslb.com".to_string());
-    commandLine.extended_filtering.insert("cdnudns.com".to_string());
-    commandLine.extended_filtering.insert("sprycdn.com".to_string());
-    commandLine.extended_filtering.insert("chuangcdn.com".to_string());
-    commandLine.extended_filtering.insert("aocde.com".to_string());
-    commandLine.extended_filtering.insert("ctxcdn.cn".to_string());
-    commandLine.extended_filtering.insert("yfcdn.net".to_string());
-    commandLine.extended_filtering.insert("mmycdn.cn".to_string());
-    commandLine.extended_filtering.insert("chinamaincloud.com".to_string());
-    commandLine.extended_filtering.insert("cnispgroup.com".to_string());
-    commandLine.extended_filtering.insert("cdnle.com".to_string());
-    commandLine.extended_filtering.insert("gosuncdn.com".to_string());
-    commandLine.extended_filtering.insert("mmtrixopt.com".to_string());
-    commandLine.extended_filtering.insert("cloudfence.cn".to_string());
-    commandLine.extended_filtering.insert("ngaagslb.cn".to_string());
-    commandLine.extended_filtering.insert("p2cdn.com".to_string());
-    commandLine.extended_filtering.insert("00cdn.com".to_string());
-    commandLine.extended_filtering.insert("sankuai.com".to_string());
-    commandLine.extended_filtering.insert("lccdn.org".to_string());
-    commandLine.extended_filtering.insert("nscloudwaf.com".to_string());
-    commandLine.extended_filtering.insert("2cname.com".to_string());
-    commandLine.extended_filtering.insert("ucloudgda.com".to_string());
-    commandLine.extended_filtering.insert("google.com".to_string());
-    commandLine.extended_filtering.insert("1e100.net".to_string());
-    commandLine.extended_filtering.insert("ncname.com".to_string());
-    commandLine.extended_filtering.insert("alipaydns.com".to_string());
-    commandLine.extended_filtering.insert("wscloudcdn.com".to_string());
+    cl.extended_filtering.insert("15cdn.com".to_string());
+    cl.extended_filtering.insert("tzcdn.cn".to_string());
+    cl.extended_filtering.insert("cedexis.net".to_string());
+    cl.extended_filtering.insert("cdxcn.cn".to_string());
+    cl.extended_filtering.insert("qhcdn.com".to_string());
+    cl.extended_filtering.insert("qh-cdn.com".to_string());
+    cl.extended_filtering.insert("qihucdn.com".to_string());
+    cl.extended_filtering.insert("360cdn.com".to_string());
+    cl.extended_filtering.insert("360cloudwaf.com".to_string());
+    cl.extended_filtering.insert("360anyu.com".to_string());
+    cl.extended_filtering.insert("360safedns.com".to_string());
+    cl.extended_filtering.insert("360wzws.com".to_string());
+    cl.extended_filtering.insert("akamai.net".to_string());
+    cl.extended_filtering.insert("akamaiedge.net".to_string());
+    cl.extended_filtering.insert("ytcdn.net".to_string());
+    cl.extended_filtering.insert("edgesuite.net".to_string());
+    cl.extended_filtering.insert("akamaitech.net".to_string());
+    cl.extended_filtering.insert("akamaitechnologies.com".to_string());
+    cl.extended_filtering.insert("edgekey.net".to_string());
+    cl.extended_filtering.insert("tl88.net".to_string());
+    cl.extended_filtering.insert("cloudfront.net".to_string());
+    cl.extended_filtering.insert("worldcdn.net".to_string());
+    cl.extended_filtering.insert("worldssl.net".to_string());
+    cl.extended_filtering.insert("cdn77.org".to_string());
+    cl.extended_filtering.insert("panthercdn.com".to_string());
+    cl.extended_filtering.insert("cdnga.net".to_string());
+    cl.extended_filtering.insert("cdngc.net".to_string());
+    cl.extended_filtering.insert("gccdn.net".to_string());
+    cl.extended_filtering.insert("gccdn.cn".to_string());
+    cl.extended_filtering.insert("akamaized.net".to_string());
+    cl.extended_filtering.insert("126.net".to_string());
+    cl.extended_filtering.insert("163jiasu.com".to_string());
+    cl.extended_filtering.insert("amazonaws.com".to_string());
+    cl.extended_filtering.insert("cdn77.net".to_string());
+    cl.extended_filtering.insert("cdnify.io".to_string());
+    cl.extended_filtering.insert("cdnsun.net".to_string());
+    cl.extended_filtering.insert("bdydns.com".to_string());
+    cl.extended_filtering.insert("ccgslb.com.cn".to_string());
+    cl.extended_filtering.insert("ccgslb.net".to_string());
+    cl.extended_filtering.insert("ccgslb.com".to_string());
+    cl.extended_filtering.insert("ccgslb.cn".to_string());
+    cl.extended_filtering.insert("c3cache.net".to_string());
+    cl.extended_filtering.insert("c3dns.net".to_string());
+    cl.extended_filtering.insert("chinacache.net".to_string());
+    cl.extended_filtering.insert("wswebcdn.com".to_string());
+    cl.extended_filtering.insert("lxdns.com".to_string());
+    cl.extended_filtering.insert("wswebpic.com".to_string());
+    cl.extended_filtering.insert("cloudflare.net".to_string());
+    cl.extended_filtering.insert("akadns.net".to_string());
+    cl.extended_filtering.insert("chinanetcenter.com".to_string());
+    cl.extended_filtering.insert("customcdn.com.cn".to_string());
+    cl.extended_filtering.insert("customcdn.cn".to_string());
+    cl.extended_filtering.insert("51cdn.com".to_string());
+    cl.extended_filtering.insert("wscdns.com".to_string());
+    cl.extended_filtering.insert("cdn20.com".to_string());
+    cl.extended_filtering.insert("wsdvs.com".to_string());
+    cl.extended_filtering.insert("wsglb0.com".to_string());
+    cl.extended_filtering.insert("speedcdns.com".to_string());
+    cl.extended_filtering.insert("wtxcdn.com".to_string());
+    cl.extended_filtering.insert("wsssec.com".to_string());
+    cl.extended_filtering.insert("fastly.net".to_string());
+    cl.extended_filtering.insert("fastlylb.net".to_string());
+    cl.extended_filtering.insert("hwcdn.net".to_string());
+    cl.extended_filtering.insert("incapdns.net".to_string());
+    cl.extended_filtering.insert("kxcdn.com.".to_string());
+    cl.extended_filtering.insert("lswcdn.net".to_string());
+    cl.extended_filtering.insert("mwcloudcdn.com".to_string());
+    cl.extended_filtering.insert("mwcname.com".to_string());
+    cl.extended_filtering.insert("azureedge.net".to_string());
+    cl.extended_filtering.insert("msecnd.net".to_string());
+    cl.extended_filtering.insert("mschcdn.com".to_string());
+    cl.extended_filtering.insert("v0cdn.net".to_string());
+    cl.extended_filtering.insert("azurewebsites.net".to_string());
+    cl.extended_filtering.insert("azurewebsites.windows.net".to_string());
+    cl.extended_filtering.insert("trafficmanager.net".to_string());
+    cl.extended_filtering.insert("cloudapp.net".to_string());
+    cl.extended_filtering.insert("chinacloudsites.cn".to_string());
+    cl.extended_filtering.insert("spdydns.com".to_string());
+    cl.extended_filtering.insert("jiashule.com".to_string());
+    cl.extended_filtering.insert("jiasule.org".to_string());
+    cl.extended_filtering.insert("365cyd.cn".to_string());
+    cl.extended_filtering.insert("huaweicloud.com".to_string());
+    cl.extended_filtering.insert("cdnhwc1.com".to_string());
+    cl.extended_filtering.insert("cdnhwc2.com".to_string());
+    cl.extended_filtering.insert("cdnhwc3.com".to_string());
+    cl.extended_filtering.insert("dnion.com".to_string());
+    cl.extended_filtering.insert("ewcache.com".to_string());
+    cl.extended_filtering.insert("globalcdn.cn".to_string());
+    cl.extended_filtering.insert("tlgslb.com".to_string());
+    cl.extended_filtering.insert("fastcdn.com".to_string());
+    cl.extended_filtering.insert("flxdns.com".to_string());
+    cl.extended_filtering.insert("dlgslb.cn".to_string());
+    cl.extended_filtering.insert("newdefend.cn".to_string());
+    cl.extended_filtering.insert("ffdns.net".to_string());
+    cl.extended_filtering.insert("aocdn.com".to_string());
+    cl.extended_filtering.insert("bsgslb.cn".to_string());
+    cl.extended_filtering.insert("qingcdn.com".to_string());
+    cl.extended_filtering.insert("bsclink.cn".to_string());
+    cl.extended_filtering.insert("trpcdn.net".to_string());
+    cl.extended_filtering.insert("anquan.io".to_string());
+    cl.extended_filtering.insert("cloudglb.com".to_string());
+    cl.extended_filtering.insert("fastweb.com".to_string());
+    cl.extended_filtering.insert("fastwebcdn.com".to_string());
+    cl.extended_filtering.insert("cloudcdn.net".to_string());
+    cl.extended_filtering.insert("fwcdn.com".to_string());
+    cl.extended_filtering.insert("fwdns.net".to_string());
+    cl.extended_filtering.insert("hadns.net".to_string());
+    cl.extended_filtering.insert("hacdn.net".to_string());
+    cl.extended_filtering.insert("cachecn.com".to_string());
+    cl.extended_filtering.insert("qingcache.com".to_string());
+    cl.extended_filtering.insert("qingcloud.com".to_string());
+    cl.extended_filtering.insert("frontwize.com".to_string());
+    cl.extended_filtering.insert("msscdn.com".to_string());
+    cl.extended_filtering.insert("800cdn.com".to_string());
+    cl.extended_filtering.insert("tbcache.com".to_string());
+    cl.extended_filtering.insert("aliyun-inc.com".to_string());
+    cl.extended_filtering.insert("aliyuncs.com".to_string());
+    cl.extended_filtering.insert("alikunlun.net".to_string());
+    cl.extended_filtering.insert("alikunlun.com".to_string());
+    cl.extended_filtering.insert("alicdn.com".to_string());
+    cl.extended_filtering.insert("aligaofang.com".to_string());
+    cl.extended_filtering.insert("yundunddos.com".to_string());
+    cl.extended_filtering.insert("kunlun(.*.to_string()).com".to_string());
+    cl.extended_filtering.insert("cdngslb.com".to_string());
+    cl.extended_filtering.insert("yunjiasu-cdn.net".to_string());
+    cl.extended_filtering.insert("momentcdn.com".to_string());
+    cl.extended_filtering.insert("aicdn.com".to_string());
+    cl.extended_filtering.insert("qbox.me".to_string());
+    cl.extended_filtering.insert("qiniu.com".to_string());
+    cl.extended_filtering.insert("qiniudns.com".to_string());
+    cl.extended_filtering.insert("jcloudcs.com".to_string());
+    cl.extended_filtering.insert("jdcdn.com".to_string());
+    cl.extended_filtering.insert("qianxun.com".to_string());
+    cl.extended_filtering.insert("jcloudlb.com".to_string());
+    cl.extended_filtering.insert("jcloud-cdn.com".to_string());
+    cl.extended_filtering.insert("maoyun.tv".to_string());
+    cl.extended_filtering.insert("maoyundns.com".to_string());
+    cl.extended_filtering.insert("xgslb.net".to_string());
+    cl.extended_filtering.insert("ucloud.cn".to_string());
+    cl.extended_filtering.insert("ucloud.com.cn".to_string());
+    cl.extended_filtering.insert("cdndo.com".to_string());
+    cl.extended_filtering.insert("zenlogic.net".to_string());
+    cl.extended_filtering.insert("ogslb.com".to_string());
+    cl.extended_filtering.insert("uxengine.net".to_string());
+    cl.extended_filtering.insert("tan14.net".to_string());
+    cl.extended_filtering.insert("verycloud.cn".to_string());
+    cl.extended_filtering.insert("verycdn.net".to_string());
+    cl.extended_filtering.insert("verygslb.com".to_string());
+    cl.extended_filtering.insert("xundayun.cn".to_string());
+    cl.extended_filtering.insert("xundayun.com".to_string());
+    cl.extended_filtering.insert("speedycloud.cc".to_string());
+    cl.extended_filtering.insert("mucdn.net".to_string());
+    cl.extended_filtering.insert("nucdn.net".to_string());
+    cl.extended_filtering.insert("alphacdn.net".to_string());
+    cl.extended_filtering.insert("systemcdn.net".to_string());
+    cl.extended_filtering.insert("edgecastcdn.net".to_string());
+    cl.extended_filtering.insert("zetacdn.net".to_string());
+    cl.extended_filtering.insert("coding.io".to_string());
+    cl.extended_filtering.insert("coding.me".to_string());
+    cl.extended_filtering.insert("gitlab.io".to_string());
+    cl.extended_filtering.insert("github.io".to_string());
+    cl.extended_filtering.insert("herokuapp.com".to_string());
+    cl.extended_filtering.insert("googleapis.com".to_string());
+    cl.extended_filtering.insert("netdna.com".to_string());
+    cl.extended_filtering.insert("netdna-cdn.com".to_string());
+    cl.extended_filtering.insert("netdna-ssl.com".to_string());
+    cl.extended_filtering.insert("cdntip.com".to_string());
+    cl.extended_filtering.insert("dnsv1.com".to_string());
+    cl.extended_filtering.insert("tencdns.net".to_string());
+    cl.extended_filtering.insert("dayugslb.com".to_string());
+    cl.extended_filtering.insert("tcdnvod.com".to_string());
+    cl.extended_filtering.insert("tdnsv5.com".to_string());
+    cl.extended_filtering.insert("ksyuncdn.com".to_string());
+    cl.extended_filtering.insert("ks-cdn.com".to_string());
+    cl.extended_filtering.insert("ksyuncdn-k1.com".to_string());
+    cl.extended_filtering.insert("netlify.com".to_string());
+    cl.extended_filtering.insert("zeit.co".to_string());
+    cl.extended_filtering.insert("zeit-cdn.net".to_string());
+    cl.extended_filtering.insert("b-cdn.net".to_string());
+    cl.extended_filtering.insert("lsycdn.com".to_string());
+    cl.extended_filtering.insert("scsdns.com".to_string());
+    cl.extended_filtering.insert("quic.cloud".to_string());
+    cl.extended_filtering.insert("flexbalancer.net".to_string());
+    cl.extended_filtering.insert("gcdn.co".to_string());
+    cl.extended_filtering.insert("sangfordns.com".to_string());
+    cl.extended_filtering.insert("stspg-customer.com".to_string());
+    cl.extended_filtering.insert("turbobytes.net".to_string());
+    cl.extended_filtering.insert("turbobytes-cdn.com".to_string());
+    cl.extended_filtering.insert("att-dsa.net".to_string());
+    cl.extended_filtering.insert("azioncdn.net".to_string());
+    cl.extended_filtering.insert("belugacdn.com".to_string());
+    cl.extended_filtering.insert("cachefly.net".to_string());
+    cl.extended_filtering.insert("inscname.net".to_string());
+    cl.extended_filtering.insert("insnw.net".to_string());
+    cl.extended_filtering.insert("internapcdn.net".to_string());
+    cl.extended_filtering.insert("footprint.net".to_string());
+    cl.extended_filtering.insert("llnwi.net".to_string());
+    cl.extended_filtering.insert("llnwd.net".to_string());
+    cl.extended_filtering.insert("unud.net".to_string());
+    cl.extended_filtering.insert("lldns.net".to_string());
+    cl.extended_filtering.insert("stackpathdns.com".to_string());
+    cl.extended_filtering.insert("stackpathcdn.com".to_string());
+    cl.extended_filtering.insert("mncdn.com".to_string());
+    cl.extended_filtering.insert("rncdn1.com".to_string());
+    cl.extended_filtering.insert("simplecdn.net".to_string());
+    cl.extended_filtering.insert("swiftserve.com".to_string());
+    cl.extended_filtering.insert("bitgravity.com".to_string());
+    cl.extended_filtering.insert("zenedge.net".to_string());
+    cl.extended_filtering.insert("biliapi.com".to_string());
+    cl.extended_filtering.insert("hdslb.net".to_string());
+    cl.extended_filtering.insert("hdslb.com".to_string());
+    cl.extended_filtering.insert("xwaf.cn".to_string());
+    cl.extended_filtering.insert("shifen.com".to_string());
+    cl.extended_filtering.insert("sinajs.cn".to_string());
+    cl.extended_filtering.insert("tencent-cloud.net".to_string());
+    cl.extended_filtering.insert("elemecdn.com".to_string());
+    cl.extended_filtering.insert("sinaedge.com".to_string());
+    cl.extended_filtering.insert("sina.com.cn".to_string());
+    cl.extended_filtering.insert("sinacdn.com".to_string());
+    cl.extended_filtering.insert("sinasws.com".to_string());
+    cl.extended_filtering.insert("saebbs.com".to_string());
+    cl.extended_filtering.insert("websitecname.cn".to_string());
+    cl.extended_filtering.insert("cdncenter.cn".to_string());
+    cl.extended_filtering.insert("vhostgo.com".to_string());
+    cl.extended_filtering.insert("jsd.cc".to_string());
+    cl.extended_filtering.insert("powercdn.cn".to_string());
+    cl.extended_filtering.insert("21vokglb.cn".to_string());
+    cl.extended_filtering.insert("21vianet.com.cn".to_string());
+    cl.extended_filtering.insert("21okglb.cn".to_string());
+    cl.extended_filtering.insert("21speedcdn.com".to_string());
+    cl.extended_filtering.insert("21cvcdn.com".to_string());
+    cl.extended_filtering.insert("okcdn.com".to_string());
+    cl.extended_filtering.insert("okglb.com".to_string());
+    cl.extended_filtering.insert("cdnetworks.net".to_string());
+    cl.extended_filtering.insert("txnetworks.cn".to_string());
+    cl.extended_filtering.insert("cdnnetworks.com".to_string());
+    cl.extended_filtering.insert("txcdn.cn".to_string());
+    cl.extended_filtering.insert("cdnunion.net".to_string());
+    cl.extended_filtering.insert("cdnunion.com".to_string());
+    cl.extended_filtering.insert("mygslb.com".to_string());
+    cl.extended_filtering.insert("cdnudns.com".to_string());
+    cl.extended_filtering.insert("sprycdn.com".to_string());
+    cl.extended_filtering.insert("chuangcdn.com".to_string());
+    cl.extended_filtering.insert("aocde.com".to_string());
+    cl.extended_filtering.insert("ctxcdn.cn".to_string());
+    cl.extended_filtering.insert("yfcdn.net".to_string());
+    cl.extended_filtering.insert("mmycdn.cn".to_string());
+    cl.extended_filtering.insert("chinamaincloud.com".to_string());
+    cl.extended_filtering.insert("cnispgroup.com".to_string());
+    cl.extended_filtering.insert("cdnle.com".to_string());
+    cl.extended_filtering.insert("gosuncdn.com".to_string());
+    cl.extended_filtering.insert("mmtrixopt.com".to_string());
+    cl.extended_filtering.insert("cloudfence.cn".to_string());
+    cl.extended_filtering.insert("ngaagslb.cn".to_string());
+    cl.extended_filtering.insert("p2cdn.com".to_string());
+    cl.extended_filtering.insert("00cdn.com".to_string());
+    cl.extended_filtering.insert("sankuai.com".to_string());
+    cl.extended_filtering.insert("lccdn.org".to_string());
+    cl.extended_filtering.insert("nscloudwaf.com".to_string());
+    cl.extended_filtering.insert("2cname.com".to_string());
+    cl.extended_filtering.insert("ucloudgda.com".to_string());
+    cl.extended_filtering.insert("google.com".to_string());
+    cl.extended_filtering.insert("1e100.net".to_string());
+    cl.extended_filtering.insert("ncname.com".to_string());
+    cl.extended_filtering.insert("alipaydns.com".to_string());
+    cl.extended_filtering.insert("wscloudcdn.com".to_string());
     ////////////////////////////////////////////////////////////////////////////////
-    commandLine.thread_number = num_cpus::get();
+    cl.thread_number = num_cpus::get();
     let matches = App::new("ct")
         .version("1.0.9")
         .about("Collect information tools about the target domain.")
@@ -414,15 +414,15 @@ pub fn command_parse() {
         return;
     }
     if matches.is_present("Z") {
-        commandLine.not_zoomeye = true
+        cl.not_zoomeye = true
     }
     if matches.is_present("E") {
-        commandLine.extended_analysis = true;
+        cl.extended_analysis = true;
     }
 
     if let Some(ex_filter) = matches.value_of("filter-domains") {
         ex_filter.split(',').for_each(|x| {
-            commandLine.extended_filtering.insert(x.to_string());
+            cl.extended_filtering.insert(x.to_string());
         });
     }
     if matches.is_present("T") {
@@ -432,28 +432,28 @@ pub fn command_parse() {
         return;
     }
     if let Some(domain_name) = matches.value_of("domain") {
-        commandLine.domain = domain_name.to_string();
-        commandLine.extended_filtering.insert(commandLine.domain.clone());
+        cl.domain = domain_name.to_string();
+        cl.extended_filtering.insert(cl.domain.clone());
     }
     if matches.is_present("query-ip") {
-        commandLine.query_ip = true;
+        cl.query_ip = true;
     } else {
-        commandLine.query_ip = false;
+        cl.query_ip = false;
     }
     if let Some(qnum) = matches.value_of("query-num") {
-        commandLine.query_number = qnum.to_string().parse().unwrap();
+        cl.query_number = qnum.to_string().parse().unwrap();
     } else {
-        commandLine.query_number = 100;
+        cl.query_number = 100;
     }
 
     if matches.is_present("cidr") {
-        commandLine.cidr = true;
+        cl.cidr = true;
     } else {
-        commandLine.cidr = false;
+        cl.cidr = false;
     }
 
     if let Some(work_dir) = matches.value_of("work-dir") {
-        commandLine.work_dir = work_dir.to_string();
+        cl.work_dir = work_dir.to_string();
     } else {
         let dt = Local::now();
         let tmp_dir;
@@ -462,30 +462,30 @@ pub fn command_parse() {
         } else {
             tmp_dir = "/tmp".to_string();
         }
-        commandLine.work_dir = format!("{}/{}_{}",
-                                       tmp_dir,
-                                       dt.format("%Y%m%d%H%M").to_string(),
-                                       commandLine.domain
+        cl.work_dir = format!("{}/{}_{}",
+                              tmp_dir,
+                              dt.format("%Y%m%d%H%M").to_string(),
+                              cl.domain
         );
     }
     if let Some(dns_file) = matches.value_of("dns-file") {
-        commandLine.dns_file = dns_file.to_string();
+        cl.dns_file = dns_file.to_string();
     }
     if let Some(domain_file) = matches.value_of("domain-file") {
-        commandLine.domain_file = domain_file.to_string();
+        cl.domain_file = domain_file.to_string();
     }
     if let Some(apikey) = matches.value_of("apikey") {
         ZoomEye::init(apikey.to_string());
         return;
     }
     if let Some(num) = matches.value_of("thread-num") {
-        commandLine.thread_number = num.to_string().parse().unwrap();
+        cl.thread_number = num.to_string().parse().unwrap();
     }
-    commandLine.cidr = false;
-    if commandLine.domain.is_empty() {
+    cl.cidr = false;
+    if cl.domain.is_empty() {
         return;
     }
-    run(&mut commandLine);
+    run(&mut cl);
 }
 
 fn run(cl: &mut CommandLine) {
@@ -512,8 +512,8 @@ fn run(cl: &mut CommandLine) {
     //如果使用zoomeye，那么获取用户信息,核实用户信息数据权限
     if !cl.not_zoomeye {
         let base_info = ZoomEye::get_base_info();
-        let tmpTotalQuota = base_info.data.quota_info.remain_total_quota;
-        if tmpTotalQuota == 0 {
+        let tmp_total_quota = base_info.data.quota_info.remain_total_quota;
+        if tmp_total_quota == 0 {
             cl.not_zoomeye = true;
         } else {
             //获取zoomeye上相关目标域名的子域名信息
