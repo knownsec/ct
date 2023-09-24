@@ -1,0 +1,15 @@
+/* 这是一个 Rust 语言编写的 ZoomEye API 的封装库，提供了一些用于查询 ZoomEye 数据的功能。以下是其中一些重要部分的解释：
+
+ZoomEye 结构体: 代表了 ZoomEye API 的封装。
+
+Portinfo, IPInfo, IPHostInfo, Domain, DomainResult, DomainQuery, ResourcesInfoResult, ResourcesInfoQuery 等结构体: 用于定义 ZoomEye 返回的不同类型的数据结构。
+
+IPHostInfoQuery, DomainQuery, ResourcesInfoQuery 等实现了不同类型查询的结构体: 包含了对应类型的查询功能，可以向 ZoomEye API 发送请求并将返回结果解析成对应的数据结构。
+
+get_apikey_file(), check_apikey(apikey: &String), get_apikey() 等函数: 用于处理 API Key 相关的操作，比如从文件中读取、检查 API Key 的有效性等。
+
+init(apikey: String): 初始化 ZoomEye API，将传入的 API Key 写入到文件中。
+
+get_base_info(): 获取 ZoomEye 的基本信息，包括用户信息和配额信息。
+
+整体来说，这个库封装了 ZoomEye API 的一些常用功能，使得在 Rust 程序中可以更方便地使用 ZoomEye 的服务。*/
