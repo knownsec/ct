@@ -60,6 +60,12 @@ pub struct IPHostInfoQuery {
     pub data: IPHostInfo,
 }
 
+
+
+
+
+
+
 #[derive(Debug, Serialize, Deserialize, Default)]
 pub struct Resource {
     pub search: u32,
