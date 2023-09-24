@@ -24,7 +24,8 @@ use crate::zoomeye::DomainQuery;
 //Extended analysis 扩展分析
 //Extended filtering 扩展过滤
 #[derive(Debug, Default)]
-struct CommandLine {
+struct CommandLine 
+{
     domain: String,
     dns_file: String,
     domain_file: String,
