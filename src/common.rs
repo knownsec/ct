@@ -48,7 +48,7 @@ impl CommandLine {
 
 pub fn command_parse() {
     let mut cl = CommandLine::new();
-    //初始化过滤cdn信息//////////////////////////////////////////////////////////////
+    //初始化过滤cdn信息
     cl.extended_filtering.insert("15cdn.com".to_string());
     cl.extended_filtering.insert("tzcdn.cn".to_string());
     cl.extended_filtering.insert("cedexis.net".to_string());
@@ -315,7 +315,7 @@ pub fn command_parse() {
     cl.extended_filtering.insert("ncname.com".to_string());
     cl.extended_filtering.insert("alipaydns.com".to_string());
     cl.extended_filtering.insert("wscloudcdn.com".to_string());
-    ////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////
     cl.thread_number = num_cpus::get();
     let matches = App::new("ct")
         .version("1.0.9")
