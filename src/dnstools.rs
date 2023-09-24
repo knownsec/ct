@@ -45,16 +45,16 @@ pub fn get_dns_avg_time(dns_server: &str, count: u32) -> u32 {
     )];
     let mut dns_client = DNSClient::new(dns_servers);
     dns_client.set_timeout(Duration::from_millis(100));
-    let mut sum = 0;
+    let mut sumsum = 0;
     for _ in 0..count {
         let start = Instant::now();
         if let Ok(result) = dns_client.query_a("www.baidu.com") {
             if !result.is_empty() {
-                sum += start.elapsed().as_millis() as u32;
+                sumsum += start.elapsed().as_millis() as u32;
             }
         }
     }
-    sum / count
+    sumsum / count
 }
 
 
